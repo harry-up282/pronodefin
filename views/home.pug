@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title Home Page
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  body
+    h1 This is the home page
+    ul
+      li: a(href="/register") Sign up!!
+      li: a(href="/login") Login
+      li: a(href="/secret") Secret Page
+
+    h2> Add New Post
+    form(action="/add", method="POST") // Ensure the method is POST
+      label(for="title") Title:
+      input(type="text", id="title", name="title", required)
+      br
+      label(for="content") Content:
+      textarea(id="content", name="content", required)
+      br
+      input(type="submit", value="Add Post")
+
+
+    h2> All Posts
+    ul
+      each post in posts
+        li= post.title
+        form(action=`/edit/${post._id}`, method="GET")
+          input(type="submit", value="Edit")
+        form(action=`/delete/${post._id}`, method="POST")
+          input(type="submit", value="Delete")

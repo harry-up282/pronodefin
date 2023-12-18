@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title Delete Post
+  body
+    h1 Delete Post
+
+    // Delete Post Form
+    form(action=`/account/delete/${post._id}`, method='POST')
+      p Are you sure you want to delete this post?
+      input(type='submit', value='Delete Post')

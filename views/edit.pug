@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title Edit Post
+  body
+    h1 Edit Post
+
+    // Edit Post Form
+    form(action=`/account/edit/${post._id}`, method='POST')
+      label(for='title') Title:
+      input(type='text', id='title', name='title', required, value=post.title)
+      br
+      label(for='content') Content:
+      textarea(id='content', name='content', required)= post.content
+      br
+      input(type='submit', value='Save Changes')

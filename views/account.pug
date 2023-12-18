@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title Account Management
+  body
+    h1 Account Management
+
+    // Display Posts
+    ul
+      each post in posts
+        li= post.title
+        form(action=`/account/edit/${post._id}`, method='GET')
+          button(type='submit') Edit
+        form(action=`/account/delete/${post._id}`, method='POST')
+          button(type='submit') Delete
+
+    // Add Post Form
+    h2 Add New Post
+    form(action='/account/add', method='POST')
+      label(for='title') Title:
+      input(type='text', id='title', name='title', required)
+      br
+      label(for='content') Content:
+      textarea(id='content', name='content', required)
+      br
+      input(type='submit', value='Add Post')
+  // Example using Pug
+a(href='/logout') Logout
